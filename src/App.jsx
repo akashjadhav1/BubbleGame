@@ -9,7 +9,7 @@ function App() {
   const [score,setScore] = useState(0);
   const [fair,setFair] = useState(true);
 
-  // Function to decrement the timer
+
   const handleTimer = () => {
     setTimeout(() => {
       setTimer((prevTimer) => (prevTimer > 1 ? prevTimer - 1 : 0))
@@ -41,21 +41,21 @@ const handleClickBubble = (bubbleValue) => {
       setScore(0);
   }
 
-  // useEffect to handle the timer
+ 
   useEffect(() => {
     if (timer > 0) {
       handleTimer();
     } else {
-      clearTimeout(handleTimer); // Clear timeout when timer reaches 0
+      clearTimeout(handleTimer); 
       setFair(false);
     }
   }, [timer]);
 
-  // Generate random numbers for bubbles only once when the component mounts
+ 
   useEffect(() => {
     const randomBubbleValues = Array.from({ length: totalBubble }, () => Math.floor(Math.random() * 10));
     setBubbleValues(randomBubbleValues);
-  }, [hit]); // Empty dependency array ensures this runs only once when the component mounts
+  }, [hit]); 
 
   return (
     <>
